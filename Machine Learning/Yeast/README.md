@@ -1003,14 +1003,6 @@ print(model.metrics_names)
 
 ```
 
-    940/940 [==============================] - 0s 22us/step
-    [0.054644976556301114, 0.5978723168373108]
-    484/484 [==============================] - 0s 26us/step
-    [0.05747882593884941, 0.5681818127632141]
-    ['loss', 'accuracy']
-    
-
-
 ![png](output_2_1.png)
 
 
@@ -1067,12 +1059,6 @@ print(model2.metrics_names)
 
 ```
 
-    1484/1484 [==============================] - 0s 45us/step
-    0.4002695679664612
-    ['loss', 'accuracy']
-    
-
-
 ## Step 4: Calculating weights: 
 ### There will be 8 weights: bias from first hidden layer, first node, 3 weights that extend from first hidden layer, first, second, and third nodes to first node in 2nd hidden layer, and the 3 weights that extend from the first, second, third nodes in 2nd hidden layer to first node in the output layer. 
 
@@ -1125,28 +1111,6 @@ print(model3.layers[2].get_weights()[0][2][0])
 
 ```
 
-    [0.58 0.61 0.47 0.13 0.5  0.   0.48 0.22] [0 0 1 0 0 0 0 0 0 0]
-    [array([[1., 0., 0.],
-           [1., 0., 0.],
-           [1., 0., 0.]], dtype=float32), array([1., 0., 0.], dtype=float32)]
-    [array([[1., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
-           [1., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
-           [1., 0., 0., 0., 0., 0., 0., 0., 0., 0.]], dtype=float32), array([1., 0., 0., 0., 0., 0., 0., 0., 0., 0.], dtype=float32)]
-    bias
-    0.99999356
-    0.9999082
-    H1 to H2
-    0.9999968
-    0.9999968
-    0.9999968
-    H2 to Output
-    0.9999151
-    0.9999541
-    0.9999541
-    
-
-
-
 ## Problem 5: Parameter Sweep / Grid Gearch 
 ### PS on the number of hidden layers (1, 2, 3) and number of nodes in each hidden layer (3, 6, 9, 12) to get optimal configuration
 
@@ -1195,14 +1159,11 @@ x_6[0,7]=0.39
 y_pred6 = model.predict(x_6)
 
 ```
-
-    [[3.8262880e-01 6.3269466e-01 5.2263588e-02 2.6476860e-02 3.1888485e-06
-      1.4722347e-05 6.5565109e-07 4.3611825e-03 3.8730374e-03 8.5821009e-04]]
     
 
 
 
-# Step 7: Grid Sweep with Different Parameters
+## Step 7: Grid Sweep with Different Parameters
 ### Grid Sweep using 1, 2, 3 hidden layers and 3, 6, 9, 12 nodes per hidden layer, and error for training set. Using relu, softmax, and categorical cross-entropy  
 
 ```python
@@ -1227,7 +1188,6 @@ def create_ANN2(numLayers, numNodes):
                           validation_data=(testing_X_flt, testing_Y_flt))
     print("Error(",numLayers,'Hidden Layers',numNodes, 'Nodes): ', 1 - model4.evaluate(testing_X_flt, testing_Y_flt)[1])
     
-
 ```
 
 
@@ -1261,5 +1221,4 @@ plt.title('Plot: error for each iteration with new configuration')
 ```
 ![png](output_8_1.png)
 
-```python
 
