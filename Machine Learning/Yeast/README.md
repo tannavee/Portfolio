@@ -1,18 +1,9 @@
 
 
-```python
-# Tannavee Kumar: 913861307
-# ECS 171: Fall 2019
-# HW 2
-```
-
+# Step 1: Outlier Detection 
+## Using 2 outlier detection algorithms to find outliers in the data set, and using a single method to remove the outliers from the data set.
 
 ```python
-# Problem 1: Using 2 outlier detection algorithms to find
-# outliers in the data set, and using a single method to 
-# remove the outliers from the data set.
-
-
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import IsolationForest
@@ -103,14 +94,7 @@ classDisData_flt = [data for index, data in enumerate(classDisData) if index not
 raw_data_flt = {'mcg': mcgData_flt, 'gvh': gvhData_flt, 'alm': almData_flt, 'mit': mitData_flt, 'erl': erlData_flt, 'pox': poxData_flt, 'vac': vacData_flt, 'nuc': nucData_flt, 'Yeast Class': classDisData_flt}
 raw_flt = pd.DataFrame(raw_data_flt, columns = ['mcg','gvh','alm','mit','erl','pox','vac','nuc', 'Yeast Class'])
 
-
-
 raw_fltMatrix = raw_flt.values
-
-raw_flt
-
-
-
 ```
 
     60
@@ -889,18 +873,11 @@ raw_flt
 <p>1424 rows × 9 columns</p>
 </div>
 
-
+# Step 2: Construct a 4-layer artificial neural network (FFNN)
+## with sigmoid activations and MSE loss function to perfrom multi-class classification. Hidden layers will have 3 nodes each. Split data randomly with 66% of samples in training, and 34% in testing.
 
 
 ```python
-# Problem 2: Construct a 4-layer artificial neural network (FFNN)
-# with sigmoid activations and MSE loss function to perfrom multi-class
-# classification. Hidden layers should have 3 nodes each. Split data
-# randomly with 66% of samples in training, and 34% in testing.
-
-# what plots do we exactly need?
-# 
-
 import numpy
 import tensorflow as tf
 from tensorflow import keras
@@ -1040,15 +1017,10 @@ print(model.metrics_names)
 
 ![png](output_2_2.png)
 
-
+# Step 3: Re-train the ANN 
+## Use all of the data (all 1484 samples) to get the training error.
 
 ```python
-# Problem 3: Re-train the ANN with all your data (all 1484 samples). 
-# What is the training error? Provide the final activation function 
-# formula for the "CYT" after training (this includes the functional form 
-# and corresponding #weights from hidden layers necassary to calculate 
-# activation of "CYT" in output layer 
-
 # doing encoding for the data set where the oulier was not removed
 classData = []
 for rows in classDisData:
