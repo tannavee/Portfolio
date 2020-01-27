@@ -1,7 +1,7 @@
+# Feed Forward Artificial Neural Network to predict Yeast class from biological data
 
-
-# Step 1: Outlier Detection 
-## Using 2 outlier detection algorithms to find outliers in the data set, and using a single method to remove the outliers from the data set.
+## Step 1: Outlier Detection 
+### Using 2 outlier detection algorithms to find outliers in the data set, and using a single method to remove the outliers from the data set.
 
 ```python
 import pandas as pd
@@ -873,8 +873,8 @@ raw_fltMatrix = raw_flt.values
 <p>1424 rows × 9 columns</p>
 </div>
 
-# Step 2: Construct a 4-layer artificial neural network (FFNN)
-## with sigmoid activations and MSE loss function to perfrom multi-class classification. Hidden layers will have 3 nodes each. Split data randomly with 66% of samples in training, and 34% in testing.
+## Step 2: Construct a 4-layer artificial neural network (FFNN)
+### with sigmoid activations and MSE loss function to perfrom multi-class classification. Hidden layers will have 3 nodes each. Split data randomly with 66% of samples in training, and 34% in testing.
 
 
 ```python
@@ -1017,8 +1017,8 @@ print(model.metrics_names)
 
 ![png](output_2_2.png)
 
-# Step 3: Re-train the ANN 
-## Use all of the data (all 1484 samples) to get the training error.
+## Step 3: Re-train the ANN 
+### Use all of the data (all 1484 samples) to get the training error.
 
 ```python
 # doing encoding for the data set where the oulier was not removed
@@ -1073,13 +1073,10 @@ print(model2.metrics_names)
     
 
 
-```python
-# Problem 4: Calculating 8 weights: bias from first hidden layer, first node,
-# 3 weights that extend from first hidden layer, first, second, and third
-# nodes to first node in 2nd hidden layer, and the 3 weights that extend 
-# from the first, second, third nodes in 2nd hidden layer to first node
-# in the output layer. 
+## Step 4: Calculating weights: 
+### There will be 8 weights: bias from first hidden layer, first node, 3 weights that extend from first hidden layer, first, second, and third nodes to first node in 2nd hidden layer, and the 3 weights that extend from the first, second, third nodes in 2nd hidden layer to first node in the output layer. 
 
+```python
 from numpy import array
 
 print(featuresMatrix[0], classData[0])
@@ -1149,18 +1146,12 @@ print(model3.layers[2].get_weights()[0][2][0])
     
 
 
-```python
-# Problem 5: Perform a parameter sweep (grid) search on the number of hidden
-# layers (1, 2, 3) and number of nodes in each hidden layer (3, 6, 9, 12).
-# Create a 3x4 matrix with the number of hidden layers as rows and the
-# number of hidden nodes per payer as columns, with each element (cell)
-# of the matrix representing the testing set error for that 
-# specific combination of layers/nodes. What is the optimal configuration?
-# what you find the relationship between these attibtes (number of layers,
-# number of nodes) and the generalization error in the testing data) to be?
 
-# creating function to do grid sweep, using if/else to determine how 
-# many layers to add
+## Problem 5: Parameter Sweep / Grid Gearch 
+### PS on the number of hidden layers (1, 2, 3) and number of nodes in each hidden layer (3, 6, 9, 12) to get optimal configuration
+
+```python
+# creating function to do grid sweep, using if/else to determine how many layers to add
 def create_ANN(numLayers, numNodes):
     model4 = Sequential()
     if numLayers == 1:
@@ -1182,36 +1173,11 @@ def create_ANN(numLayers, numNodes):
   
 ```
 
-    484/484 [==============================] - 0s 67us/step
-    Error( 1 Hidden Layers 3 Nodes):  0.48140496015548706
-    484/484 [==============================] - 0s 66us/step
-    Error( 1 Hidden Layers 6 Nodes):  0.48553717136383057
-    484/484 [==============================] - 0s 63us/step
-    Error( 1 Hidden Layers 9 Nodes):  0.42975205183029175
-    484/484 [==============================] - 0s 75us/step
-    Error( 1 Hidden Layers 12 Nodes):  0.5578512251377106
-    484/484 [==============================] - 0s 58us/step
-    Error( 2 Hidden Layers 3 Nodes):  0.49793386459350586
-    484/484 [==============================] - 0s 58us/step
-    Error( 2 Hidden Layers 6 Nodes):  0.5165289342403412
-    484/484 [==============================] - 0s 60us/step
-    Error( 2 Hidden Layers 9 Nodes):  0.4400826692581177
-    484/484 [==============================] - 0s 62us/step
-    Error( 2 Hidden Layers 12 Nodes):  0.5888429880142212
-    484/484 [==============================] - 0s 62us/step
-    Error( 3 Hidden Layers 3 Nodes):  0.514462798833847
-    484/484 [==============================] - 0s 64us/step
-    Error( 3 Hidden Layers 6 Nodes):  0.5082644522190094
-    484/484 [==============================] - 0s 76us/step
-    Error( 3 Hidden Layers 9 Nodes):  0.4669421315193176
-    484/484 [==============================] - 0s 99us/step
-    Error( 3 Hidden Layers 12 Nodes):  0.5681818127632141
-    
 
+## Step 6: Predicition
+### Predict class from given features
 
 ```python
-# Problem 6: Predicit class from given features
-
 # using model created in problem 2 using the filtered training set
 
 x_6 = np.empty([1, 8], dtype=float)
@@ -1235,9 +1201,11 @@ y_pred6 = model.predict(x_6)
     
 
 
-```python
-# Problem 7
 
+# Step 7: Grid Sweep with Different Parameters
+### Grid Sweep using 1, 2, 3 hidden layers and 3, 6, 9, 12 nodes per hidden layer, and error for training set. Using relu, softmax, and categorical cross-entropy  
+
+```python
 # crearing function as 5 but changing configurations
 def create_ANN2(numLayers, numNodes):
     model4 = Sequential()
@@ -1261,32 +1229,6 @@ def create_ANN2(numLayers, numNodes):
     
 
 ```
-
-    484/484 [==============================] - 0s 29us/step
-    Error( 1 Hidden Layers 3 Nodes):  0.8615702539682388
-    484/484 [==============================] - 0s 21us/step
-    Error( 1 Hidden Layers 6 Nodes):  0.67768594622612
-    484/484 [==============================] - 0s 21us/step
-    Error( 1 Hidden Layers 9 Nodes):  0.67768594622612
-    484/484 [==============================] - 0s 55us/step
-    Error( 1 Hidden Layers 12 Nodes):  0.8615702539682388
-    484/484 [==============================] - 0s 25us/step
-    Error( 2 Hidden Layers 3 Nodes):  0.7107438147068024
-    484/484 [==============================] - 0s 33us/step
-    Error( 2 Hidden Layers 6 Nodes):  0.67768594622612
-    484/484 [==============================] - 0s 50us/step
-    Error( 2 Hidden Layers 9 Nodes):  0.67768594622612
-    484/484 [==============================] - 0s 56us/step
-    Error( 2 Hidden Layers 12 Nodes):  0.8615702539682388
-    484/484 [==============================] - 0s 54us/step
-    Error( 3 Hidden Layers 3 Nodes):  0.7107438147068024
-    484/484 [==============================] - 0s 56us/step
-    Error( 3 Hidden Layers 6 Nodes):  0.67768594622612
-    484/484 [==============================] - 0s 29us/step
-    Error( 3 Hidden Layers 9 Nodes):  0.8615702539682388
-    484/484 [==============================] - 0s 60us/step
-    Error( 3 Hidden Layers 12 Nodes):  0.7107438147068024
-    
 
 
 ```python
@@ -1317,19 +1259,7 @@ plt.ylabel('error')
 plt.xlabel('iteration')
 plt.title('Plot: error for each iteration with new configuration')
 ```
-
-
-
-
-    Text(0.5, 1.0, 'Plot: error for each iteration with new configuration')
-
-
-
-
 ![png](output_8_1.png)
-
-
 
 ```python
 
-```
