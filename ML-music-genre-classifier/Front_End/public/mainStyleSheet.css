@@ -1,0 +1,99 @@
+/*
+mainStyleSheet.css
+Authors: Cameron Fitzpatrick, Luc Nglankong
+*/
+
+/* Font information and path */
+@font-face {
+  font-family: 'carlito';
+  src: url('/assets/fonts/carlito/Carlito-Regular.ttf');
+}
+
+/* Used to set the placeholder text font color and opacity in input field */
+::placeholder{
+  color: #E9CC66;
+  opacity: 0.5;
+}
+
+/* Used for positioning purposes */
+main {
+  min-height: 100vh
+}
+
+/* used for positioning purposes, sets the background image to path */
+div.pageContainer {
+  display: flex;
+  align-items: center;
+  min-height: inherit;
+  flex-direction: column;
+  background-image: url('/assets/pageOne.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* used for positioning purposes */
+div.boxContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* wrapper that holds #LandingPage and #description for positioning purposes */
+div.title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Title text of the page that holds "Moosic Classifier" */
+#LandingPage {
+  font-size: 40px;
+  weight: bold;
+  color: #DEB31A;
+  font-size: 10em;
+  font-family: 'league-gothic', sans-serif;
+}
+
+/* description text of the webpage, "music genre classifier" */
+#description{
+  color: #737373;
+  font-family: 'carlito', sans-serif;
+  font-size: 3em;
+}
+
+/* wrapper that holds input field and buttons for positioning purposes */
+#textInput {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  justify-content: center;
+  margin-top: 100px;
+  font-family: 'carlito', sans-serif;
+}
+
+/* Input field that accepts song titles */
+#songInput {
+  font-size: 5px;
+  color: #E9CC66;
+  width: 100%;
+  margin-right: 20px;
+  background-color: #667d9d ;
+}
+
+/* wrapper that holds buttons for positioning purposes */
+div.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+/* styles both the Search and Feeling Lucky buttons */
+#buttonStyle {
+  font-size: 25px;
+  color: white;
+  background-color:#667d9d;
+  height: 45px;
+  margin: 3px;
+}

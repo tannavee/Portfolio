@@ -1,0 +1,15 @@
+.vscode/launch.json
+.vscode/settings.json
+Data/echonest.csv
+Data/features.csv
+Data/genres.csv
+Data/tracks.csv
+Data/tracks.pkl
+Data/genres.pkl
+Data/features.pkl
+Data/echonest.pkl
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

@@ -1,0 +1,169 @@
+/* 
+pageTwo.css
+Authors: Luc Nglankong 
+*/
+
+/* font information and path */
+@font-face {
+  font-family: 'carlito';
+  src: url('/assets/fonts/carlito/Carlito-Regular.ttf');
+}
+
+/* Used for positioning purposes, sets the background image to path */
+main {
+    min-height: 100vh;
+    background-image: url('/assets/pageTwo.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* Used for positioning purposes */
+#page_two_contents{
+    display: flex;
+    flex-direction: column;
+    min-height: inherit;
+    width: 100%;
+}
+
+/* Go back button at the top left corner of the second page */
+#back_button{
+    position: absolute;
+    border-radius: 5px;
+    height: 4vh;
+    width: 8vw;
+    background-color: #667d9d;
+    color: white;
+}
+
+/* Random Song button at the top right corner of the second page */
+#random_button{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border-radius: 5px;
+    height: 4vh;
+    width: 8vw;
+    background-color: #667d9d;
+    color: white;
+}
+
+/* Wrapper of song title and artist for positioning purposes */
+#title_and_artist{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    flex: 1;
+}
+
+/* Name of the song */
+#songTitle{
+    font-size: 3em;
+    color: #DEB31A;
+    font-family: 'league-gothic', sans-serif;
+}
+
+/* Artist of the song */
+#artist{
+    font-size: 1em;
+    color: #737373;
+    font-family: 'carlito', sans-serif;
+}
+
+#results_wrapper{
+    text-align: left;
+}
+
+/* wrapper of predicted genre information for positioning purposes */
+.predicted_genre{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    font-size: 2em;
+    
+    color: #DEB31A;
+}
+
+/* Name of the predicted genre */
+.predicted_genre_name{
+    color: #737373;
+    font-family: 'league-gothic', sans-serif;
+}
+
+/* Probability of the predicted genre */
+.predicted_genre_probability{
+    color: #DEB31A;
+    font-family: 'league-gothic', sans-serif;
+}
+
+/* wrapper of actual genre information for positioning purposes */
+#actual_genre{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 10px;
+    color: #737373;
+}
+
+/* Name of the actual genre */
+#actual_genre_name{
+    font-size: 2em;
+    color: #DEB31A;
+    font-family: 'league-gothic', sans-serif;
+}
+
+/* Probability of the actual genre */
+#actual_genre_probability{
+    font-size: 1em;
+    color: #737373;
+    font-family: 'carlito', sans-serif;
+}
+
+/* Wrapper of the song rank for positioning purposes */
+#song_stats{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    font-size: 2em;
+    color: #737373;
+}
+
+/* Song rank value */
+#song_score{
+    padding: 10px;
+    font-family: 'carlito', sans-serif;
+}
+
+/* wrapper of the model rank for positioning purposes */
+#model_stats{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    font-size: 2em;
+    color: #737373;
+}
+
+/* model rank */
+#model_score{
+    padding: 10px;
+    font-family: 'carlito', sans-serif;
+}
+
+/* YouTube Search link at bottom of page */
+#redirect_link{
+    text-align: center;
+    margin: 10px;
+}
